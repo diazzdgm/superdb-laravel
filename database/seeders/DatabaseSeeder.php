@@ -2,21 +2,22 @@
 
 namespace Database\Seeders;
 
-// use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
+use App\Models\Gender;
+use App\Models\Universe;
+use App\Models\Superhero;
 
 class DatabaseSeeder extends Seeder
 {
-    /**
-     * Seed the application's database.
-     *
-     * @return void
-     */
     public function run()
     {
-        $this->call([
-            GenderSeeder::class,
-            UniverseSeeder::class,
-        ]);
+        Gender::create(['name' => 'Male']);
+        Gender::create(['name' => 'Female']);
+        Gender::create(['name' => 'Other']);
+
+        Universe::create(['name' => 'Marvel']);
+        Universe::create(['name' => 'DC']);
+
+        Superhero::factory(10)->create();
     }
 }
